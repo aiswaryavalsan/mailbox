@@ -1,17 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import Navbar from "./Components/Authentication/Navbar/Navbar";
+import "./App.css";
+import Signup from "./Components/Authentication/Signup";
+import mainImage from './assets/mainImage.jpg'
 function App() {
-  const [count, setCount] = useState(0)
+  const bgImage={
+    backgroundImage:`url(${mainImage})`,
+    height:"100vh",
+    width:"100%",
+    backgroundRepeat:"no-repeat",
+    backgroundSize:"cover",
+    backgroundPosition:"center"
 
+
+  }
   return (
     <>
-     
-        
+     <main style={bgImage} >
+      <Navbar />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
