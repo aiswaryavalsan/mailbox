@@ -2,6 +2,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import "./App.css";
 import Signup from "./Components/Authentication/Signup";
 import mainImage from './assets/mainImage.jpg'
+import { Route,Routes,BrowserRouter } from "react-router-dom";
+import Home from "./Components/Page/Home";
 function App() {
   const bgImage={
     backgroundImage:`url(${mainImage})`,
@@ -17,10 +19,16 @@ function App() {
     <>
      <Navbar />
      <main style={bgImage} >
+    <BrowserRouter>
+    <Routes>
     
-      <Signup/>
-      </main>
+       
+       <Route path="/" element={<Signup />} />
+       <Route path="/home" element={<Home/>} />
      
+      </Routes>
+      </BrowserRouter>
+      </main>
     </>
   );
 }

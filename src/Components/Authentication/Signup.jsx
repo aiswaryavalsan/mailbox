@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const[isLogin,setIsLogin]=useState(false);
@@ -6,6 +7,7 @@ const Signup = () => {
     const emailRef=useRef();
     const passwordRef=useRef();
     const confirmPasswordRef=useRef();
+    const navigate=useNavigate();
     const toggleLoginHandler=()=>{
         setError('');
         setIsLogin(prev=>!prev);
@@ -15,7 +17,7 @@ const Signup = () => {
         setError('');
         const email=emailRef.current.value.trim();
         const password=passwordRef.current.value.trim();
-        const confirmPassword=confirmPasswordRef.current.value.trim();
+       
         console.log('1')
         if(!email||!password){
            
@@ -23,6 +25,7 @@ const Signup = () => {
             return
         }
        if(!isLogin){
+        const confirmPassword=confirmPasswordRef.current.value.trim();
         if(password.length<6){
             setError('Password must be at least 6 characters long.');
             return;
@@ -44,6 +47,9 @@ const Signup = () => {
             throw new Error(data.error.message);
           }
           alert(isLogin?'Login Successful':'Sign up successful')
+          if(isLogin){
+            navigate('/home')
+          }
                
         }catch(error){
             
