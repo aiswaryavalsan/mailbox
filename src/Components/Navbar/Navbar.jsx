@@ -1,8 +1,8 @@
 import React from 'react'
-import logoImg from '../../../assets/logo.jpg'
+import logoImg from '../../assets/logo.jpg'
 const Navbar = () => {
   return (
-    <nav className='bg-white/80 shadow-lg backdrop-blur-sm fixed top-0 w-full p-4 '>
+    <nav className='bg-white/80 shadow-lg backdrop-blur-sm  p-4 '>
     <div className='container flex justify-between items-center h-16'>
       <a href='#'>
         <img src={logoImg} className='w-9 h-9'/>

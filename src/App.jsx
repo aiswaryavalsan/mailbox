@@ -1,4 +1,4 @@
-import Navbar from "./Components/Authentication/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 import "./App.css";
 import Signup from "./Components/Authentication/Signup";
 import mainImage from './assets/mainImage.jpg'
@@ -15,9 +15,12 @@ function App() {
   }
   return (
     <>
+     <Navbar />
      <main style={bgImage} >
-      <Navbar />
+    
+      <Signup/>
       </main>
+     
     </>
   );
 }
