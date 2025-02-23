@@ -11,10 +11,11 @@ const AuthSliceReducer=createSlice({
         },
         logoutHandler:(state)=>{
             state.isLoggedIn=false;
+            state.email='';
             state.token='';
         }
 
     }
 })
-export default AuthSliceReducer.actions;
-export const authReducer=AuthSliceReducer.reducer;
+export default AuthSliceReducer.reducer;
+export const authActions=AuthSliceReducer.actions;

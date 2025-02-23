@@ -1,7 +1,7 @@
 import React, { useDebugValue, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import  authActions from '../store/authSlice';
+import  {authActions} from '../store/authSlice';
 const Signup = () => {
     const dispatch=useDispatch();
     const[isLogin,setIsLogin]=useState(false);
@@ -47,12 +47,13 @@ const Signup = () => {
           const data=await response.json(); 
           if(!response.ok){
             throw new Error(data.error.message);
-          }
+          }else{
           alert(isLogin?'Login Successful':'Sign up successful')
           if(isLogin){
-            navigate('/home')
+            navigate('/')
             dispatch(authActions.loginHandler({email,token:data.idToken}))
           }
+        }
                
         }catch(error){
             
