@@ -1,7 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useDebugValue, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import  authActions from '../store/authSlice';
 const Signup = () => {
+    const dispatch=useDispatch();
     const[isLogin,setIsLogin]=useState(false);
     const[error,setError]=useState('');
     const emailRef=useRef();
@@ -49,6 +51,7 @@ const Signup = () => {
           alert(isLogin?'Login Successful':'Sign up successful')
           if(isLogin){
             navigate('/home')
+            dispatch(authActions.loginHandler({email,token:data.idToken}))
           }
                
         }catch(error){
