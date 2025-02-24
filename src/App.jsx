@@ -7,6 +7,7 @@ import Home from "./Components/Page/Home";
 import ChangePassword from "./Components/Page/ChangePassword";
 import { useSelector } from "react-redux";
 import EmailForm from "./Components/Page/EmailForm";
+import Sidebar from "./Components/Navbar/SideBar";
 
 function App() {
   
@@ -25,19 +26,22 @@ function App() {
   return (
     <>
      
-     <main style={bgImage} >
+     {/* <main style={bgImage} > */}
    
     <Navbar />
+    <div className="flex">
+    {isAuthenticated&&<Sidebar/>}
     <Routes>
-       <Route path='/' element={<Home/>}/>
+       <Route path='/' element={<Signup/>}/>
        <Route path="/login" element={<Signup />} />
-       {/* <Route path="/home" element={<Home/>} /> */}
-       <Route path="/compose" element={isAuthenticated?<EmailForm/>:<Navigate to='/login'/>}/>
+       <Route path="/home" element={isAuthenticated?<Home/>:<Navigate to='/login'/>} />
+       <Route path="/home/compose" element={isAuthenticated?<EmailForm/>:<Navigate to='/login'/>}/>
        <Route path='/changepassword' element={isAuthenticated?<ChangePassword/>:<Navigate to='/login'></Navigate>}></Route>
        <Route path="*" element={<h1 className="text-center text-red-500">Page Not Found</h1>} />
       </Routes>
+      </div>
+      {/* </main> */}
      
-      </main>
     </>
   );
 }

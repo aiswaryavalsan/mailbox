@@ -20,7 +20,7 @@ const Signup = () => {
         const email=emailRef.current.value.trim();
         const password=passwordRef.current.value.trim();
        
-        console.log('1')
+        
         if(!email||!password){
            
             setError('Email and Password is Required')
@@ -47,13 +47,13 @@ const Signup = () => {
           const data=await response.json(); 
           if(!response.ok){
             throw new Error(data.error.message);
-          }else{
+          }
           alert(isLogin?'Login Successful':'Sign up successful')
           if(isLogin){
-            navigate('/')
+            navigate('/home')
             dispatch(authActions.loginHandler({email,token:data.idToken}))
           }
-        }
+        
                
         }catch(error){
             
@@ -67,6 +67,7 @@ const Signup = () => {
         <br/>
         <br/>
         <br/>
+       <div className=' w-full flex justify-center items-center h-screen'>
         <div className=" flex flex-col justify-center items-center p-1 mx-auto">
         
       
@@ -91,6 +92,7 @@ const Signup = () => {
             </button>
         </div>
         </div>
+        </div> 
        
         
     </>

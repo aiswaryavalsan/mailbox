@@ -42,7 +42,7 @@ const ChangePassword = () => {
   return (
     <>
     
-    <div className="flex items-center justify-center min-h-screen p-4">
+    <div className="flex items-center justify-center w-full min-h-screen p-4">
     <div className="bg-white shadow-lg rounded-lg p-6 w-200 max-w-md ">
     <br/>
     <h1 className= "  text-2xl font-semibold text-center text-gray-700 mb-4">Change Password</h1> 

@@ -20,17 +20,18 @@ const Navbar = () => {
       </a>
       <div>
         <ul className='flex justify-center items-center gap-10 font-semibold'>
-            <li><Link to='/' className='text-gray-800 hover:text-gray-600 inline-block px-4 py-4 select-none'>Home</Link></li>
+            <li><Link to='/home' className='text-gray-800 hover:text-gray-600 inline-block px-4 py-4 select-none'>Home</Link></li>
            {
            !isLoggedIn&& 
            <li><Link to='/login'>Signup</Link></li>
            } 
-           {
-           isLoggedIn&&
-           <li>
-            <Link to='/changepassword'>Change Password</Link>
+           {isLoggedIn&&<>
+            <li><Link to='/changepassword'>Change Password</Link>
             </li>
+           
+           </>
            }
+
             {
             isLoggedIn&&
             <button onClick={onLogoutHandler}>Logout

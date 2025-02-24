@@ -25,7 +25,7 @@ const EmailForm = () => {
 
   }
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4 w-full">
     <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl">
       <form className="flex flex-col gap-4" onSubmit={sendMessageHandler}>
        
