@@ -12,11 +12,17 @@ const initialValue = [
   },
 ]
 
-const SlateEditor=()=>{
+ 
+const SlateEditor=(props)=>{
   const [editor] = useState(() => withReact(createEditor()))
+  const messageHandler=()=>{
+    props.getMessage(editor.children[0].children[0].text)
+   
+  }
+   console.log('editor',editor)
   return(
     <Slate editor={editor} initialValue={initialValue} >
-    <Editable className='outline-none focus:outline-none'/>
+    <Editable className='outline-none focus:outline-none' onKeyUp={messageHandler}/>
     </Slate>
     )
 }

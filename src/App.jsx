@@ -6,6 +6,7 @@ import { Route,Routes,Navigate} from "react-router-dom";
 import Home from "./Components/Page/Home";
 import ChangePassword from "./Components/Page/ChangePassword";
 import { useSelector } from "react-redux";
+import EmailForm from "./Components/Page/EmailForm";
 
 function App() {
   
@@ -31,7 +32,7 @@ function App() {
        <Route path='/' element={<Home/>}/>
        <Route path="/login" element={<Signup />} />
        {/* <Route path="/home" element={<Home/>} /> */}
-       {console.log(isAuthenticated)}
+       <Route path="/compose" element={isAuthenticated?<EmailForm/>:<Navigate to='/login'/>}/>
        <Route path='/changepassword' element={isAuthenticated?<ChangePassword/>:<Navigate to='/login'></Navigate>}></Route>
        <Route path="*" element={<h1 className="text-center text-red-500">Page Not Found</h1>} />
       </Routes>
